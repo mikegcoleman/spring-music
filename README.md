@@ -7,37 +7,6 @@ This application has been built to store the same domain objects in one of a var
 
 The application use Spring Java configuration and [bean profiles](http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-profiles.html) to configure the application and the connection objects needed to use the persistence stores. It also uses the [Java CFEnv](https://github.com/pivotal-cf/java-cfenv/) library to inspect the environment when running on Cloud Foundry. See the [Cloud Foundry documentation](http://docs.cloudfoundry.org/buildpacks/java/spring-service-bindings.html) for details on configuring a Spring application for Cloud Foundry.
 
-## Building
-
-This project requires a Java version between 8 and 15 to compile. Java 16 and later versions are not yet supported.
-
-To build a runnable Spring Boot jar file, run the following command: 
-
-~~~
-$ ./gradlew clean assemble
-~~~
-
-## Running the application locally
-
-One Spring bean profile should be activated to choose the database provider that the application should use. The profile is selected by setting the system property `spring.profiles.active` when starting the app.
-
-The application can be started locally using the following command:
-
-~~~
-$ java -jar -Dspring.profiles.active=<profile> build/libs/spring-music.jar
-~~~
-
-where `<profile>` is one of the following values:
-
-* `mysql`
-* `postgres`
-* `mongodb`
-* `redis`
-
-If no profile is provided, an in-memory relational database will be used. If any other profile is provided, the appropriate database server must be started separately. Spring Boot will auto-configure a connection to the database using it's auto-configuration defaults. The connection parameters can be configured by setting the appropriate [Spring Boot properties](http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html).
-
-If more than one of these profiles is provided, the application will throw an exception and fail to start.
-
 ## Running the application on Cloud Foundry
 
 When running on Cloud Foundry, the application will detect the type of database service bound to the application (if any). If a service of one of the supported types (MySQL, Postgres, Oracle, MongoDB, or Redis) is bound to the app, the appropriate Spring profile will be configured to use the database service. The connection strings and credentials needed to use the service will be extracted from the Cloud Foundry environment.
