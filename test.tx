@@ -1,0 +1,108 @@
+apiVersion: kf.dev/v1alpha1
+kind: ServiceInstanceBinding
+metadata:
+  creationTimestamp: "2021-04-02T22:21:17Z"
+  deletionGracePeriodSeconds: 0
+  deletionTimestamp: "2021-04-05T14:57:10Z"
+  finalizers:
+  - serviceinstancebinding.kf.dev
+  generation: 2
+  managedFields:
+  - apiVersion: kf.dev/v1alpha1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        .: {}
+        f:app:
+          .: {}
+          f:name: {}
+        f:instanceRef:
+          .: {}
+          f:name: {}
+        f:parametersFrom:
+          .: {}
+          f:name: {}
+        f:progressDeadlineSeconds: {}
+    manager: kf
+    operation: Update
+    time: "2021-04-02T22:21:17Z"
+  - apiVersion: kf.dev/v1alpha1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        .: {}
+        f:bindingName: {}
+        f:className: {}
+        f:conditions: {}
+        f:credentialsSecretRef:
+          .: {}
+          f:name: {}
+        f:observedGeneration: {}
+        f:osbStatus:
+          .: {}
+          f:unbindFailed: {}
+        f:planName: {}
+        f:tags: {}
+    manager: controller
+    operation: Update
+    time: "2021-04-05T14:57:10Z"
+  - apiVersion: kf.dev/v1alpha1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:finalizers: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-04-05T14:57:11Z"
+  name: binding-spring-music-spring-music-redis-db
+  namespace: sm-space
+  resourceVersion: "4208583"
+  selfLink: /apis/kf.dev/v1alpha1/namespaces/sm-space/serviceinstancebindings/binding-spring-music-spring-music-redis-db
+  uid: a68d8a9c-3437-40f1-9179-a6b1b6bb6a7c
+spec:
+  app:
+    name: spring-music
+  instanceRef:
+    name: spring-music-redis-db
+  parametersFrom:
+    name: binding-spring-music-spring-music-redis-db-params
+  progressDeadlineSeconds: 1800
+status:
+  bindingName: spring-music-redis-db
+  className: csb-google-redis
+  conditions:
+  - lastTransitionTime: "2021-04-05T14:57:10Z"
+    message: 'Error occurred while Unbinding BackingResource: timed out, no progress
+      was made in 1800 seconds, previous status: "condition: BackingResourceReady
+      status: \"True\" reason: \"\" message: \"\""'
+    reason: ReconciliationError
+    status: "False"
+    type: BackingResourceReady
+  - lastTransitionTime: "2021-04-02T22:21:19Z"
+    status: "True"
+    type: CredentialsSecretReady
+  - lastTransitionTime: "2021-04-02T22:21:18Z"
+    status: "True"
+    type: ParamsSecretPopulatedReady
+  - lastTransitionTime: "2021-04-02T22:21:18Z"
+    status: "True"
+    type: ParamsSecretReady
+  - lastTransitionTime: "2021-04-05T14:57:10Z"
+    message: 'Error occurred while Unbinding BackingResource: timed out, no progress
+      was made in 1800 seconds, previous status: "condition: BackingResourceReady
+      status: \"True\" reason: \"\" message: \"\""'
+    reason: ReconciliationError
+    status: "False"
+    type: Ready
+  - lastTransitionTime: "2021-04-02T22:21:18Z"
+    status: "True"
+    type: ServiceInstanceReady
+  credentialsSecretRef:
+    name: credentials-binding-spring-music-spring-music-redis-db
+  observedGeneration: 2
+  osbStatus:
+    unbindFailed: {}
+  planName: ha
+  tags:
+  - gcp
+  - redis

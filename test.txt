@@ -1,0 +1,103 @@
+apiVersion: kf.dev/v1alpha1
+kind: ServiceInstance
+metadata:
+  creationTimestamp: "2021-04-02T22:10:54Z"
+  deletionGracePeriodSeconds: 0
+  deletionTimestamp: "2021-04-05T15:16:36Z"
+  finalizers:
+  - serviceinstancebinding.kf.dev
+  generation: 2
+  managedFields:
+  - apiVersion: kf.dev/v1alpha1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        .: {}
+        f:osb:
+          .: {}
+          f:brokerName: {}
+          f:className: {}
+          f:classUID: {}
+          f:planName: {}
+          f:planUID: {}
+          f:progressDeadlineSeconds: {}
+        f:parametersFrom:
+          .: {}
+          f:name: {}
+        f:tags: {}
+    manager: kf
+    operation: Update
+    time: "2021-04-02T22:10:54Z"
+  - apiVersion: kf.dev/v1alpha1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:finalizers: {}
+      f:status:
+        .: {}
+        f:className: {}
+        f:conditions: {}
+        f:observedGeneration: {}
+        f:osbStatus:
+          .: {}
+          f:deprovisionFailed: {}
+        f:planName: {}
+        f:secretName: {}
+        f:serviceTypeDescription: {}
+        f:tags: {}
+    manager: controller
+    operation: Update
+    time: "2021-04-05T15:16:36Z"
+  name: spring-music-redis-db
+  namespace: sm-space
+  resourceVersion: "4223204"
+  selfLink: /apis/kf.dev/v1alpha1/namespaces/sm-space/serviceinstances/spring-music-redis-db
+  uid: 09dc6ccb-f90f-4ef2-9340-ba751880f3db
+spec:
+  osb:
+    brokerName: cloud-service-broker
+    className: csb-google-redis
+    classUID: 0e86ad78-99b3-48b6-a986-b594e7995fd6
+    planName: ha
+    planUID: 8c85c90c-f8e3-4337-9069-c03036243894
+    progressDeadlineSeconds: 1800
+  parametersFrom:
+    name: serviceinstance-spring-music-redis-db-params
+  tags:
+  - gcp
+  - redis
+status:
+  className: csb-google-redis
+  conditions:
+  - lastTransitionTime: "2021-04-05T15:16:36Z"
+    message: 'Error occurred while DeprovisioningInstance BackingResource: timed out,
+      no progress was made in 1800 seconds, previous status: "condition: BackingResourceReady
+      status: \"True\" reason: \"\" message: \"\""'
+    reason: ReconciliationError
+    status: "False"
+    type: BackingResourceReady
+  - lastTransitionTime: "2021-04-02T22:10:54Z"
+    status: "True"
+    type: ParamsSecretPopulatedReady
+  - lastTransitionTime: "2021-04-02T22:10:54Z"
+    status: "True"
+    type: ParamsSecretReady
+  - lastTransitionTime: "2021-04-05T15:16:36Z"
+    message: 'Error occurred while DeprovisioningInstance BackingResource: timed out,
+      no progress was made in 1800 seconds, previous status: "condition: BackingResourceReady
+      status: \"True\" reason: \"\" message: \"\""'
+    reason: ReconciliationError
+    status: "False"
+    type: Ready
+  - lastTransitionTime: "2021-04-02T22:10:54Z"
+    status: "True"
+    type: SpaceReady
+  observedGeneration: 2
+  osbStatus:
+    deprovisionFailed: {}
+  planName: ha
+  secretName: serviceinstance-spring-music-redis-db-params
+  serviceTypeDescription: brokered
+  tags:
+  - gcp
+  - redis
